@@ -1,0 +1,10 @@
+install:
+"%ANDROID_HOME%\tools\bin\sdkmanager" --no_https --proxy=http --proxy_host=192.168.1.223 --proxy_port=3128 "emulator" "platform-tools" "platforms;android-28" "build-tools;28.0.3" "extras;android;m2repository" "extras;google;m2repository"
+
+download AVD:
+sdkmanager --no_https --proxy=http --proxy_host=192.168.1.223 --proxy_port=3128  "system-images;android-28;google_apis;x86"
+
+create AVD
+avdmanager create avd -n test -k "system-images;android-28;google_apis;x86"
+
+Don't forget to install "haxm"
