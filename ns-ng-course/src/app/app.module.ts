@@ -1,13 +1,16 @@
+import { ChallengeEditComponent } from './challenges/challenge-edit/challenge-edit.component';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
-import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
+import { CurrentChallengeComponent } from "~/app/challenges/current-challenge/current-challenge.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { StackComponent } from './layouts/stack/stack.component';
+import { FlexboxComponent } from './layouts/flexbox/flexbox.component';
+import { GridComponent } from './layouts/grid/grid.component';
+import { AbsoluteComponent } from './layouts/absolute/absolute.component';
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
@@ -17,13 +20,16 @@ import { ItemDetailComponent } from "./item/item-detail.component";
         AppComponent
     ],
     imports: [
-        NativeScriptModule,
-        AppRoutingModule
+        NativeScriptModule, NativeScriptFormsModule
     ],
     declarations: [
         AppComponent,
-        ItemsComponent,
-        ItemDetailComponent
+        CurrentChallengeComponent,
+        StackComponent,
+        FlexboxComponent,
+        GridComponent,
+        AbsoluteComponent,
+        ChallengeEditComponent
     ],
     providers: [],
     schemas: [

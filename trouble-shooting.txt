@@ -8,3 +8,9 @@ create AVD
 avdmanager create avd -n test -k "system-images;android-28;google_apis;x86"
 
 Don't forget to install "haxm"
+
+choco source enable !
+
+angular/cli:
+npm install  --save-dev @nativescript/schematics
+npm install --save-dev @schematics/angular

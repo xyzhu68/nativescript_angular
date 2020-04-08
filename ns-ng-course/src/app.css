@@ -6,7 +6,7 @@ selectors and properties you can use to style UI components.
 
 /*
 In many cases you may want to use the NativeScript core theme instead
-of writing your own CSS rules. You can learn more about the 
+of writing your own CSS rules. You can learn more about the
 NativeScript core theme at https://github.com/nativescript/theme
 The imported CSS rules must precede all other types of rules.
 */
@@ -22,4 +22,23 @@ The following CSS rule changes the font size of all Buttons that have the
 */
 Button.-primary {
     font-size: 18;
+}
+
+.btn {
+    background: purple;
+    border-width: 1;
+    border-color: purple;
+    color: white;
+    width: 100%;
+    padding: 5 10;
+    border-radius: 30%;
+    margin: 5 0;
+}
+
+.form-control {
+    border-bottom-color: purple;
+    border-bottom-width: 2;
+    margin: 5 0;
+    font-size: 20;
+    padding: 8 4;
 }
