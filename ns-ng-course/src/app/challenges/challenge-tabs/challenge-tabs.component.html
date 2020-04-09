@@ -1,0 +1,10 @@
+<TabView androidTabsPosition="bottom" androidSelectedTabHighlightColor="#7c015d" selectedTabTextColor="#7c015d">
+    <!-- <page-router-outlet *tabItem="{title: 'today'}" name="today"></page-router-outlet>
+    <page-router-outlet *tabItem="{title: 'current challenge'}" name="currentChallenge"></page-router-outlet> -->
+    <StackLayout *tabItem="{title: 'today'}">
+        <router-outlet name="today"></router-outlet>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'current challenge'}">
+        <router-outlet name="currentChallenge"></router-outlet>
+    </StackLayout>
+</TabView>

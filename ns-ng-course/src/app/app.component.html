@@ -1,9 +1,12 @@
-<FlexboxLayout flexDirection="column" [style.marginTop]="statusbarHeight">
-    <ns-challenge-edit (input)="onChallengeInput($event)"></ns-challenge-edit>
-    <ns-current-challenge [challengeTitle]="activeChallenge"></ns-current-challenge>
-    <!-- <ns-stack></ns-stack> -->
-    <!-- <ns-flexbox></ns-flexbox> -->
-    <!-- <ns-grid></ns-grid> -->
-    <!-- <ns-absolute></ns-absolute> -->
-</FlexboxLayout>
+<!-- <StackLayout [style.marginTop]="statusbarHeight">
+</StackLayout>    -->
+
+<RadSideDrawer>
+    <FlexboxLayout [style.marginTop]="statusbarHeight" tkDrawerContent class="drawer-container">
+        <Button text="logout" class="btn"></Button>
+    </FlexboxLayout>
+    <StackLayout tkMainContent>
+        <page-router-outlet></page-router-outlet>
+    </StackLayout>
+</RadSideDrawer>
 

@@ -14,3 +14,6 @@ choco source enable !
 angular/cli:
 npm install  --save-dev @nativescript/schematics
 npm install --save-dev @schematics/angular
+
+install side drawer
+tns plugin add nativescript-ui-sidedrawer
