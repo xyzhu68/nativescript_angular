@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectorRef } from "@angular/core";
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectorRef, ViewContainerRef } from "@angular/core";
 import * as application from "tns-core-modules/application";
 import { UIService } from "~/app/shared/ui/ui.service";
 import { Subscription } from "rxjs";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import { isAndroid } from "tns-core-modules/platform";
 
 @Component({
     selector: "ns-app",
@@ -17,17 +18,21 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
             result = application.android.context.getResources().getDimensionPixelSize(resourceId);
         }
-        console.log("statusbar height (in px): ", result);
+        //console.log("statusbar height (in px): ", result);
         return result;
     }
-    public statusbarHeight = this.getStatusBarHeight().toString() + "px";
+    get statusbarHeight() {
+        return isAndroid ? this.getStatusBarHeight().toString() + 'px' : '0';
+    }
 
     @ViewChild(RadSideDrawerComponent, {static: false}) drawerComponent: RadSideDrawerComponent;
 
     private drawerSub: Subscription;
     private drawer: RadSideDrawer;
 
-    constructor(private uiService: UIService, private changeDetectionRef: ChangeDetectorRef) {}
+    constructor(private uiService: UIService,
+                private changeDetectionRef: ChangeDetectorRef,
+                private vcRef: ViewContainerRef) {}
 
     ngOnInit() {
         this.drawerSub = this.uiService.drawerState.subscribe(() => {
@@ -35,6 +40,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.drawer.toggleDrawerState();
             }
         });
+        this.uiService.setRootVCRef(this.vcRef);
     }
 
     ngAfterViewInit() {
@@ -51,5 +57,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     onChallengeInput(challengeDescription: string) {
         this.activeChallenge = challengeDescription;
         console.log("onChallenge:", challengeDescription);
+    }
+
+    onLogout() {
+        this.drawer.toggleDrawerState();
     }
 }

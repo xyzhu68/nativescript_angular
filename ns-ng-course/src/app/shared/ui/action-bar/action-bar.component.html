@@ -5,8 +5,9 @@
             *ngIf="canGoBack"
             (tap)="onGoBack()"
     ></NavigationButton>
-    <NavigationButton *ngIf="android" icon="res://menu_black" (tap)="onToggleMenu()"></NavigationButton> <!-- android -->
-    <ActionItem *ngIf="!android" ios.position="left" (tap)="onToggleMenu()"> <!-- ios -->
+    <NavigationButton *ngIf="android && hasMenu" icon="res://menu_black" (tap)="onToggleMenu()"></NavigationButton> <!-- android -->
+    <ActionItem *ngIf="!android && hasMenu" ios.position="left" (tap)="onToggleMenu()"> <!-- ios -->
         <Label text="MENU"></Label>
     </ActionItem>
+    <ng-content></ng-content> <!-- add some component specific content -->
 </ActionBar>

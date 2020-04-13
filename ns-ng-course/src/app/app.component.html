@@ -3,7 +3,7 @@
 
 <RadSideDrawer>
     <FlexboxLayout [style.marginTop]="statusbarHeight" tkDrawerContent class="drawer-container">
-        <Button text="logout" class="btn"></Button>
+        <Button text="logout" class="btn" nsRouterLink="/" [clearHistory]="true" (tap)="onLogout()"></Button>
     </FlexboxLayout>
     <StackLayout tkMainContent>
         <page-router-outlet></page-router-outlet>

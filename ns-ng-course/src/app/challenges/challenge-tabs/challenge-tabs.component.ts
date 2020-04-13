@@ -17,7 +17,7 @@ export class ChallengeTabsComponent implements OnInit {
             [{outlets: {currentChallenge: ['current-challenge'], today: ['today']}}],
             { relativeTo: this.active}
         );
-        //this.page.actionBarHidden = true;
+        this.page.actionBarHidden = true;
     }
 
 }
