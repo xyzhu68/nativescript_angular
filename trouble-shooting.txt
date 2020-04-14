@@ -17,3 +17,7 @@ npm install --save-dev @schematics/angular
 
 install side drawer
 tns plugin add nativescript-ui-sidedrawer
+
+modify file "platforms\android\gradle.properties":
+systemProp.https.proxyHost=192.168.1.223
+systemProp.https.proxyPort=3128
