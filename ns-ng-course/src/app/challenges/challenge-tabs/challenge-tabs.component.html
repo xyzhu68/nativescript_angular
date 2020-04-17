@@ -1,10 +1,28 @@
-<TabView androidTabsPosition="bottom" androidSelectedTabHighlightColor="#7c015d" selectedTabTextColor="#7c015d">
-    <!-- <page-router-outlet *tabItem="{title: 'today'}" name="today"></page-router-outlet>
-    <page-router-outlet *tabItem="{title: 'current challenge'}" name="currentChallenge"></page-router-outlet> -->
+<!-- <TabView androidTabsPosition="bottom">
     <StackLayout *tabItem="{title: 'today'}">
         <page-router-outlet name="today"></page-router-outlet>
     </StackLayout>
     <StackLayout *tabItem="{title: 'current challenge'}">
         <page-router-outlet name="currentChallenge"></page-router-outlet>
     </StackLayout>
-</TabView>
+</TabView> -->
+
+<BottomNavigation>
+    <TabStrip>
+        <TabStripItem>
+            <Label text="today"></Label>
+            <Image src="res://check"></Image>
+        </TabStripItem>
+        <TabStripItem>
+            <Label text="current challenge"></Label>
+            <Image src="res://trophy"></Image>
+        </TabStripItem>
+    </TabStrip>
+
+    <TabContentItem >
+        <page-router-outlet name="today"></page-router-outlet>
+    </TabContentItem>
+    <TabContentItem>
+        <page-router-outlet name="currentChallenge"></page-router-outlet>
+    </TabContentItem>
+</BottomNavigation>

@@ -21,3 +21,9 @@ tns plugin add nativescript-ui-sidedrawer
 modify file "platforms\android\gradle.properties":
 systemProp.https.proxyHost=192.168.1.223
 systemProp.https.proxyPort=3128
+
+install sass:
+npm install node-sass --save-dev --> does not work!
+--> download from "https://github.com/sass/node-sass/releases/tag/v4.13.0"
+    set SASS_BINARY_PATH=...win32-x64-xx_binding.node
+    npm install node-sass --save-dev

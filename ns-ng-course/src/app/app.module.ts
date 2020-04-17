@@ -11,6 +11,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AppRoutingModule } from '~/app/app-routing.module';
 import { DayModalComponent } from './challenges/day-modal/day-modal.component';
 import { SharedModule } from "./shared/ui/shared.module";
+import { ChallengeActionsModule } from "~/app/challenges/challenge-actions/challenge-actions.module";
 
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
@@ -25,7 +26,8 @@ import { SharedModule } from "./shared/ui/shared.module";
         NativeScriptFormsModule,
         AppRoutingModule,
         NativeScriptUISideDrawerModule,
-        SharedModule
+        SharedModule,
+        ChallengeActionsModule
     ],
     declarations: [
         AppComponent,

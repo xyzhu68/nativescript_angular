@@ -4,7 +4,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 @Component({
   selector: 'ns-today',
   templateUrl: './today.component.html',
-  styleUrls: ['./today.component.css'],
+  styleUrls: ['./today.component.scss'],
   moduleId: module.id
 })
 export class TodayComponent implements OnInit {
@@ -14,5 +14,7 @@ export class TodayComponent implements OnInit {
     ngOnInit(): void {
     }
 
-
+    onActionSelected(action: 'complete' | 'fail' | 'cancel') {
+        console.log(action);
+    }
 }
