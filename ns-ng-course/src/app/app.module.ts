@@ -12,6 +12,7 @@ import { AppRoutingModule } from '~/app/app-routing.module';
 import { DayModalComponent } from './challenges/day-modal/day-modal.component';
 import { SharedModule } from "./shared/ui/shared.module";
 import { ChallengeActionsModule } from "~/app/challenges/challenge-actions/challenge-actions.module";
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
@@ -26,6 +27,7 @@ import { ChallengeActionsModule } from "~/app/challenges/challenge-actions/chall
         NativeScriptFormsModule,
         AppRoutingModule,
         NativeScriptUISideDrawerModule,
+        ReactiveFormsModule,
         SharedModule,
         ChallengeActionsModule
     ],
