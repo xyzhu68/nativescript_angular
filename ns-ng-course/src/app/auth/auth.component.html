@@ -28,6 +28,6 @@
             <Label *ngIf="!passwordControlIsValid" text="Please enter a valid password (at lease 6 characters)."></Label>
     </StackLayout>
     <Button class="btn btn-flat" [text]="isLogin ? 'Signup instead' : 'Login instead'" (tap)="onSwitch()"></Button>
-    <Button [text]="isLogin ? 'login' : 'Signup'" class="btn btn-primary btn-rounded-lg" (tap)="onSignin()" [isEnabled]="form.valid"></Button>
+    <Button [text]="isLogin ? 'login' : 'Signup'" class="btn btn-primary btn-rounded-lg" (tap)="onSignin()" ></Button><!-- [isEnabled]="form.valid" -->
 </StackLayout>
 

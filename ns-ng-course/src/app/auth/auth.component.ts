@@ -35,24 +35,24 @@ export class AuthComponent implements OnInit {
     }
 
     onSignin() {
-        // this.router.navigate(['/challenges'], {clearHistory: true});
+        // this.emailEl.nativeElement.focus();
+        // this.passwordEl.nativeElement.focus();
+        // this.passwordEl.nativeElement.dismissSoftInput();
 
-        this.emailEl.nativeElement.focus();
-        this.passwordEl.nativeElement.focus();
-        this.passwordEl.nativeElement.dismissSoftInput();
+        // if (!this.form.valid)
+        //     return;
+        // const email = this.form.get('email').value;
+        // const password = this.form.get('password').value;
+        // this.form.reset();
+        // this.emailControlIsValid = true;
+        // this.passwordControlIsValid = true;
+        // if (this.isLogin) {
+        //     console.log("Logging in ...");
+        // } else {
+        //     console.log("Signing up...");
+        // }
 
-        if (!this.form.valid)
-            return;
-        const email = this.form.get('email').value;
-        const password = this.form.get('password').value;
-        this.form.reset();
-        this.emailControlIsValid = true;
-        this.passwordControlIsValid = true;
-        if (this.isLogin) {
-            console.log("Logging in ...");
-        } else {
-            console.log("Signing up...");
-        }
+        this.router.navigate(['/challenges'], {clearHistory: true});
     }
 
     onSwitch() {

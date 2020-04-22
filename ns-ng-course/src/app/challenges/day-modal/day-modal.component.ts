@@ -1,3 +1,4 @@
+import { DayStatus } from '~/app/challenges/day.model';
 import { Component, OnInit } from '@angular/core';
 import { ModalDialogParams } from 'nativescript-angular/modal-dialog';
 
@@ -9,14 +10,23 @@ import { ModalDialogParams } from 'nativescript-angular/modal-dialog';
 })
 export class DayModalComponent implements OnInit {
     loadedDate: Date;
+    loadedStatus: 'complete' | 'fail' = null;
 
     constructor(private modalParams: ModalDialogParams) { }
 
     ngOnInit(): void {
-        this.loadedDate = (this.modalParams.context as { date: Date}).date;
+        const parsedParams = this.modalParams.context as { date: Date, status: DayStatus};
+        this.loadedDate = parsedParams.date;
+        if (parsedParams.status === DayStatus.Completed) {
+            this.loadedStatus = 'complete';
+        } else if (parsedParams.status === DayStatus.Failed) {
+            this.loadedStatus = 'fail';
+        } else {
+            this.loadedStatus = null;
+        }
     }
 
-    onHandleInput(action: 'complete' | 'fail' | 'cancel') {
+    onHandleInput(action: DayStatus) {
         this.modalParams.closeCallback(action);
     }
 }

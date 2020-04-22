@@ -1,6 +1,8 @@
+import { ChallengeService } from './../challenge.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'ns-challenge-edit',
@@ -10,8 +12,10 @@ import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
 })
 export class ChallengeEditComponent implements OnInit {
     isCreating = true;
+    title = '';
+    description = '';
 
-    constructor(private activatedRoute: ActivatedRoute, private pageRoute: PageRoute, private router: RouterExtensions) {}
+    constructor(private activatedRoute: ActivatedRoute, private pageRoute: PageRoute, private router: RouterExtensions, private challengeService: ChallengeService) {}
 
     ngOnInit() {
         // this.activatedRoute.paramMap.subscribe(paramMap => {
@@ -28,12 +32,23 @@ export class ChallengeEditComponent implements OnInit {
                 } else {
                     this.isCreating = paramMap.get('mode') !== 'edit';
                 }
+
+                if (!this.isCreating) {
+                    this.challengeService.currentChallenge.pipe(take(1)).subscribe(challenge => {
+                        this.title = challenge.title;
+                        this.description = challenge.description;
+                    });
+                }
             });
         });
     }
 
     onSubmit(title: string, description: string) {
-        console.log(title, description);
+        if (this.isCreating) {
+            this.challengeService.createNewChallenge(title, description);
+        } else {
+            this.challengeService.updateChallenge(title, description);
+        }
         this.router.backToPreviousPage();
     }
 }
