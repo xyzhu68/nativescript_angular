@@ -7,7 +7,7 @@
     </StackLayout>
 </TabView> -->
 
-<BottomNavigation #bottomNavEl>
+<BottomNavigation *ngIf="!isLoading" #bottomNavEl>
     <TabStrip>
         <TabStripItem>
             <Label text="today"></Label>
@@ -26,3 +26,7 @@
         <page-router-outlet name="currentChallenge"></page-router-outlet>
     </TabContentItem>
 </BottomNavigation>
+
+<FlexboxLayout justifyContent="center" alignItem="center" *ngIf="isLoading">
+    <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+</FlexboxLayout>

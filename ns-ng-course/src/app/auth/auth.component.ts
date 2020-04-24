@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TextField } from 'tns-core-modules/ui/text-field';
+import { AuthService } from '~/app/auth/auth.service';
 
 @Component({
   selector: 'ns-auth',
@@ -14,11 +15,12 @@ export class AuthComponent implements OnInit {
     emailControlIsValid = true;
     passwordControlIsValid = true;
     isLogin = true;
+    isLoading = false;
 
     @ViewChild('emailEl', {static: false}) emailEl: ElementRef<TextField>;
     @ViewChild('passwordEl', {static: false}) passwordEl: ElementRef<TextField>;
 
-    constructor(private router: RouterExtensions) { }
+    constructor(private router: RouterExtensions, private autService: AuthService) { }
 
     ngOnInit(): void {
         this.form = new FormGroup({
@@ -35,24 +37,35 @@ export class AuthComponent implements OnInit {
     }
 
     onSignin() {
-        // this.emailEl.nativeElement.focus();
-        // this.passwordEl.nativeElement.focus();
-        // this.passwordEl.nativeElement.dismissSoftInput();
+        this.emailEl.nativeElement.focus();
+        this.passwordEl.nativeElement.focus();
+        this.passwordEl.nativeElement.dismissSoftInput();
 
-        // if (!this.form.valid)
-        //     return;
-        // const email = this.form.get('email').value;
-        // const password = this.form.get('password').value;
-        // this.form.reset();
-        // this.emailControlIsValid = true;
-        // this.passwordControlIsValid = true;
-        // if (this.isLogin) {
-        //     console.log("Logging in ...");
-        // } else {
-        //     console.log("Signing up...");
-        // }
-
-        this.router.navigate(['/challenges'], {clearHistory: true});
+        if (!this.form.valid)
+            return;
+        const email = this.form.get('email').value;
+        const password = this.form.get('password').value;
+        this.form.reset();
+        this.emailControlIsValid = true;
+        this.passwordControlIsValid = true;
+        this.isLoading = true;
+        if (this.isLogin) {
+            this.autService.login(email, password).subscribe(resData => {
+                this.isLoading = false;
+                this.router.navigate(['/challenges'], {clearHistory: true});
+            }, err => {
+                console.log(err);
+                this.isLoading = false;
+            });
+        } else {
+            this.autService.signUp(email, password).subscribe(resData => {
+                this.isLoading = false;
+                this.router.navigate(['/challenges'], {clearHistory: true});
+            }, err => {
+                console.log(err);
+                this.isLoading = false;
+            });
+        }
     }
 
     onSwitch() {

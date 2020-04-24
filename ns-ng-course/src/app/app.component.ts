@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectorRef, ViewContainerRef } from "@angular/core";
 import { UIService } from "~/app/shared/ui/ui.service";
 import { Subscription } from "rxjs";
@@ -21,7 +22,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     constructor(private uiService: UIService,
                 private changeDetectionRef: ChangeDetectorRef,
-                private vcRef: ViewContainerRef) {}
+                private vcRef: ViewContainerRef,
+                private authService: AuthService
+            ) {}
 
     ngOnInit() {
         this.drawerSub = this.uiService.drawerState.subscribe(() => {
@@ -50,5 +53,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     onLogout() {
         this.drawer.toggleDrawerState();
+        this.authService.logout();
     }
 }

@@ -27,3 +27,6 @@ npm install node-sass --save-dev --> does not work!
 --> download from "https://github.com/sass/node-sass/releases/tag/v4.13.0"
     set SASS_BINARY_PATH=...win32-x64-xx_binding.node
     npm install node-sass --save-dev
+
+emulator:
+- dont forget to set proxy in emulator, if e.g. HttpClient is used to access extenal resources

@@ -6,13 +6,10 @@ import { NativeScriptUISideDrawerModule} from "nativescript-ui-sidedrawer/angula
 import { AppComponent } from "./app.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
-import { AuthComponent } from './auth/auth.component';
 import { AppRoutingModule } from '~/app/app-routing.module';
 import { DayModalComponent } from './challenges/day-modal/day-modal.component';
-import { SharedModule } from "./shared/ui/shared.module";
 import { ChallengeActionsModule } from "~/app/challenges/challenge-actions/challenge-actions.module";
-import { ReactiveFormsModule } from "@angular/forms";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
@@ -24,16 +21,13 @@ import { ReactiveFormsModule } from "@angular/forms";
     ],
     imports: [
         NativeScriptModule,
-        NativeScriptFormsModule,
+        NativeScriptHttpClientModule,
         AppRoutingModule,
         NativeScriptUISideDrawerModule,
-        ReactiveFormsModule,
-        SharedModule,
         ChallengeActionsModule
     ],
     declarations: [
         AppComponent,
-        AuthComponent,
         DayModalComponent
     ],
     providers: [],

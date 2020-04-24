@@ -11,6 +11,7 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
     @Output() actionSelect = new EventEmitter<DayStatus>();
     @Input() cancelText='Cancel';
     @Input() chosen: 'complete' | 'faile' = null;
+    @Input() startDone = false; // done at loading
     action: 'complete' | 'fail' = null;
     done = false;
 
@@ -26,6 +27,12 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
 
             if (changes.chosen.currentValue === null) {
                 this.done = false;
+            }
+        }
+
+        if (changes.startDone) {
+            if (changes.startDone.currentValue) {
+                this.done = true;
             }
         }
     }
