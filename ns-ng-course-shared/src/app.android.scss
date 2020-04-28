@@ -1,4 +1,6 @@
-// Import common styles
-@import 'app-common';
+@import 'app-variables';
 
-// Place any CSS rules you want to apply only on Android here
+.btn-flat {
+    z-index: 0;
+    android-elevation: 0;
+}

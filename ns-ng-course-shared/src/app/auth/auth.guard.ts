@@ -3,11 +3,11 @@ import { AuthService } from './auth.service';
 import { CanLoad, Route, UrlSegment } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { take, switchMap, tap } from 'rxjs/operators';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanLoad {
-    constructor(private authService: AuthService, private router: RouterExtensions) {}
+    constructor(private authService: AuthService, private router: Router) {}
 
     canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
         return this.authService.user.pipe(

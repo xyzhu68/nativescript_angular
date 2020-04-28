@@ -1,21 +1,73 @@
-@import "~@nativescript/theme/core";
-@import "~@nativescript/theme/blue";
+// @import "~@nativescript/theme/core";
+// @import "~@nativescript/theme/blue";
+@import "./theme/colors";
 
-// Place any CSS rules you want to apply on both iOS and Android here.
-// This is where the vast majority of your CSS code goes.
+.drawer-container {
+    background: linear-gradient(140deg, #2b0c72, #5c3fa0);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20;
 
-// Font icon class
-.fab {
-    font-family: "Font Awesome 5 Brands", "fa-brands-400";
-    font-weight: 400;
+    .btn {
+        width: 80%;
+        font-size: 24;
+        height: 45;;
+    }
 }
 
-.fas {
-    font-family: "Font Awesome 5 Free", "fa-solid-900";
-    font-weight: 900;
+.btn-flat {
+    background: transparent;
+    border-color: transparent;
+    border-width: 1;
+    color: $primary;
 }
 
-.far {
-    font-family: "Font Awesome 5 Free", "fa-regular-400";
-    font-weight: 400;
+// .ng-invalid.ng-touched {
+//     border-bottom-color: red;
+//     color: red;
+// }
+
+.form {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+
+    .input-field {
+        width: 80%;
+
+        .label {
+            color: $primary;
+            font-weight: bold;
+            font-family: 'Oswald', 'Oswald-Regular', 'Oswald-Bold';
+            width: 100%;
+        }
+        .label.invalid {
+            color: red;
+        }
+
+        .input {
+            border-bottom-width: 2;
+            border-color: $primary;
+            border-bottom-color: $primary;
+            width: 100%;
+            color: black;
+        }
+        .input.ng-invalid.ng-touched {
+            border-bottom-color: red;
+            color: red;
+        }
+    }
+}
+
+
+
+.h1 {
+    font-weight: bold;
+    color: $primary;
+    font-family: 'Oswald', 'Oswald-Regular', 'Oswald-Bold';
+}
+
+.fa {
+    font-family: 'FontAwesome';
 }

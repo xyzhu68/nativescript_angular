@@ -1,0 +1,15 @@
+@import "~@nativescript/theme/core.compat";
+@import "~@nativescript/theme/blue.compat";
+
+@import "app-common";
+@import "./theme/colors";
+
+$btn-color: $primary;
+
+
+@import '~@nativescript/theme/index';
+
+ActionBar {
+    background: $primary;
+    color: white;
+}
