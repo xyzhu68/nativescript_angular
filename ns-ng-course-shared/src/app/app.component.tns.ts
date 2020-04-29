@@ -1,3 +1,4 @@
+import { Utils } from './shared/utils';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,4 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+    public get statusbarHeight() { return Utils.statusbarHeight(); }
 }
