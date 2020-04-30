@@ -1,0 +1,89 @@
+@import "../../../theme/colors";
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.week-day-label {
+    color: $secondary;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.day-container {
+    justify-content: center;
+    align-items: center;
+}
+.day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+    border-color: $primary;
+    font-size: 14px;
+    border-width: 1px;
+    border-radius: 50%;
+    color: $primary;
+    cursor: pointer;
+
+    // text-align: center;
+    
+    // padding: 15px;
+
+    @media (min-width: 768px) {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+.completed {
+    background: $success;
+    color: white;
+}
+
+.failed {
+    background: $fail;
+    color: white;
+}
+
+.not-settable {
+    background: #ccc;
+    color: #535353;
+    cursor: not-allowed;
+}
+
+.grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.gridCell1 {
+    grid-column-start: 1;
+}
+.gridCell2 {
+    grid-column-start: 2;
+}
+.gridCell3 {
+    grid-column-start: 3;
+}
+.gridCell4 {
+    grid-column-start: 4;
+}
+.gridCell5 {
+    grid-column-start: 5;
+}
+.gridCell6 {
+    grid-column-start: 6;
+}
+.gridCell7 {
+    grid-column-start: 7;
+}

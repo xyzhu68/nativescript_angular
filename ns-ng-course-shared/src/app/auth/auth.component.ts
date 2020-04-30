@@ -2,7 +2,7 @@ import { AuthService } from './auth.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormService } from '@src/app/helpers/form.service';
+import { FormService } from '../helpers/form.service';
 
 @Component({
   selector: 'ns-auth',
@@ -54,7 +54,7 @@ export class AuthComponent implements OnInit {
         if (this.isLogin) {
             this.authService.login(email, password).subscribe(resData => {
                 this.isLoading = false;
-                // this.router.navigate(['/challenges']);
+                this.router.navigate(['/challenges']);
             }, err => {
                 console.log(err);
                 this.isLoading = false;
@@ -62,7 +62,7 @@ export class AuthComponent implements OnInit {
         } else {
             this.authService.signUp(email, password).subscribe(resData => {
                 this.isLoading = false;
-                // this.router.navigate(['/challenges']);
+                this.router.navigate(['/challenges']);
             }, err => {
                 console.log(err);
                 this.isLoading = false;

@@ -1,0 +1,32 @@
+<!-- <TabView androidTabsPosition="bottom">
+    <StackLayout *tabItem="{title: 'today'}">
+        <page-router-outlet name="today"></page-router-outlet>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'current challenge'}">
+        <page-router-outlet name="currentChallenge"></page-router-outlet>
+    </StackLayout>
+</TabView> -->
+
+<BottomNavigation *ngIf="!isLoading" #bottomNavEl>
+    <TabStrip>
+        <TabStripItem>
+            <Label text="today"></Label>
+            <Image src="res://check"></Image>
+        </TabStripItem>
+        <TabStripItem>
+            <Label text="current challenge"></Label>
+            <Image src="res://trophy"></Image>
+        </TabStripItem>
+    </TabStrip>
+
+    <TabContentItem >
+        <page-router-outlet name="today"></page-router-outlet>
+    </TabContentItem>
+    <TabContentItem>
+        <page-router-outlet name="currentChallenge"></page-router-outlet>
+    </TabContentItem>
+</BottomNavigation>
+
+<FlexboxLayout justifyContent="center" alignItem="center" *ngIf="isLoading">
+    <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+</FlexboxLayout>

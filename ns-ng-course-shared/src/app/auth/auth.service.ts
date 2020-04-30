@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject, of, Observable } from 'rxjs';
 import { User } from './user.model';
-import { RoutingService } from '@src/app/helpers/routing.service';
-import { DialogService } from '@src/app/helpers/dialog.service';
-import { StorageService } from '@src/app/helpers/storage.service';
+import { RoutingService } from '../helpers/routing.service';
+import { DialogService } from '../helpers/dialog.service';
+import { StorageService } from '../helpers/storage.service';
 
 
 const FIREBASE_API_KEY = 'AIzaSyB6isZ-FBzK9Bp8YsfJBPJiNZfRIW4LEQA';

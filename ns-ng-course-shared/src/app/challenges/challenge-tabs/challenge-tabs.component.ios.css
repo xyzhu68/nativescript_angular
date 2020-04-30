@@ -1,0 +1,6 @@
+TabView {
+    /* selected-tab-text-color: #7c015d; */
+    selected-item-color: blueviolet;
+    un-selected-item-color: gray;
+    highlight-color: gold;
+}

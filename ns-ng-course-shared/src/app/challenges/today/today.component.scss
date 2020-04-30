@@ -1,0 +1,14 @@
+
+// GridLayout {
+//     background-image: url("res://waterfall");
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     background-size: cover;
+// }
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

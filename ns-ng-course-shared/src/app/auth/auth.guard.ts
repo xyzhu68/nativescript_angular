@@ -22,6 +22,7 @@ export class AuthGuard implements CanLoad {
                 if (!isAuth) {
                     this.router.navigate(['/auth']);
                 }
+                console.log('Hello');
             })
         );
     }
