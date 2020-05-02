@@ -10,6 +10,7 @@
     <div class="input-field text-center">
         <button type="button" class="btn-flat" (click)="onSwitch()">{{ isLogin ? 'Signup instead' : 'Login instead' }}</button>
     </div>
-    <button type="submit" class="btn btn-primary">{{ isLogin ? "Login" : "Signup" }}</button>
+    <button type="submit" class="btn btn-primary" *ngIf="!isLoading">{{ isLogin ? "Login" : "Signup" }}</button>
+    <ns-loading-indicator *ngIf="isLoading"></ns-loading-indicator>
 </form>
 

@@ -9,7 +9,7 @@
 </ns-action-bar>
 
 <div class="page">
-    <div *ngIf="!currentChallenge">
+    <div *ngIf="!currentChallenge && !isLoading">
         <p>No challenge found!</p>
         <button class="btn btn-primary" routerLink="/challenges/replace" >Create One!</button>
     </div>
@@ -18,7 +18,7 @@
         <p class="text-center">{{ currentChallenge.description }}</p>
     </div>
 
-    <div *ngIf="currentChallenge" class="grid">
+    <div *ngIf="currentChallenge && !isLoading" class="grid">
         <span *ngFor="let weekDay of weekDays; let i = index" class="week-day-label text-center">{{ weekDay }}</span>
 
         <div *ngFor="let day of currentChallenge.days; let i=index"
@@ -31,6 +31,7 @@
             <span>{{ day.dayInMonth }}</span>
         </div>
     </div>
+    <ns-loading-indicator *ngIf="isLoading"></ns-loading-indicator>
 </div>
 
 
