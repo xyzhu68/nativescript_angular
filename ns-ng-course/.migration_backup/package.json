@@ -35,7 +35,7 @@
     "@schematics/angular": "^9.1.0",
     "nativescript-dev-sass": "^1.7.0",
     "nativescript-dev-webpack": "~1.5.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "typescript": "~3.5.3"
   },
   "gitHead": "2250137db8c1e0bd0eb543e8e4563cb71480c00d",
